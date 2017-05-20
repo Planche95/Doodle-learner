@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9437498919107e64b9322ed93c35e089
+timeCreated: 1495234588
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - tempGameObject: {fileID: 1103352618888472, guid: 7d8ef3b691f41a44e956f056186a5e50,
+      type: 2}
+  - hintGO: {fileID: 1482966900028480, guid: cef466211a5020242ad0534b2b56f802, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
