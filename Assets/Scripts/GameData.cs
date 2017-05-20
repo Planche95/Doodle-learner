@@ -9,11 +9,11 @@ public static class GameData{
 
     public static LANGUAGE CURR_LAN = LANGUAGE.POLISH;
 
-    public static string SET = "Animals";
+    public static string SET = "Fruits and vegetables";
 
     public static GameType GAME_TYPE = new NormalGame(5);
 
-    public static string BASE_SPRITE = "dog";
+    public static string BASE_SPRITE = "broccoli";
 
     public static readonly Dictionary<string, Dictionary<string, string[]>> words = new Dictionary<string, Dictionary<string, string[]>>()
     {
