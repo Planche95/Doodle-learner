@@ -67,7 +67,7 @@ public static class GameData{
                 { "avocado",    new string[]{"awokado",     "Avocado" } },
                 { "banana",     new string[]{"banan",       "Banane" } },
                 { "bean",       new string[]{"fasola",      "Bohne" } },
-                { "beetroot",   new string[]{"burak",       "Schmetterling" } },
+                { "beetroot",   new string[]{"burak",       "Rübe" } },
                 { "blueberries",new string[]{"jagody",      "Blaubeeren" } },
                 { "broccoli",   new string[]{"brokuły",     "Brokkoli" } },
                 { "cabbage",    new string[]{"kapusta",     "Kohl" } },
