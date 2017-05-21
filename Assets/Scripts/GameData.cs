@@ -13,7 +13,7 @@ public static class GameData{
 
     public static GameType GAME_TYPE = new NormalGame(5);
 
-    public static string BASE_SPRITE = "broccoli";
+    public static string BASE_SPRITE = "dog";
 
     public static readonly Dictionary<string, Dictionary<string, string[]>> words = new Dictionary<string, Dictionary<string, string[]>>()
     {

@@ -22,7 +22,7 @@ public abstract class GameType
 
     public GameType(int nrWords)
     {
-        canvas = GameObject.FindGameObjectWithTag("Canvas");
+        //canvas = GameObject.FindGameObjectWithTag("Canvas");
         popup = Resources.Load<GameObject>("Prefabs/wrongGO"); ;
         word = Resources.Load<GameObject>("Prefabs/Text (0)"); ;
         wrong = Resources.Load<Sprite>("Sprites/wrong"); ;
@@ -40,6 +40,11 @@ public abstract class GameType
     {
         System.Random rnd = new System.Random();
         return Enumerable.Range(from, to).OrderBy(x => rnd.Next()).Take(count).OrderBy(o => o).Reverse().ToList();
+    }
+
+    public void loadCanvas()
+    {
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
     }
 }
 

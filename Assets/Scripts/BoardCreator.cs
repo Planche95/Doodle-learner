@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BoardCreator: MonoBehaviour {
 
@@ -17,6 +18,7 @@ public class BoardCreator: MonoBehaviour {
     private const float SIZE_RANGE = 0.05f;
 
     void Start () {
+        GameData.GAME_TYPE.loadCanvas();
         Sprite baseSprite = Resources.Load<Sprite>("Sprites/" + GameData.SET + "/" + GameData.BASE_SPRITE);
         GetComponent<SpriteRenderer>().sprite = baseSprite;
         Texture2D tex = baseSprite.texture;
@@ -121,5 +123,10 @@ public class BoardCreator: MonoBehaviour {
         GameObject.Instantiate(hintGO, g.transform.position + new Vector3(Random.Range(-1.5f, 1.5f),Random.Range(-1.5f, 1.5f)), Quaternion.identity);
 
 
+    }
+
+    public void BackButton()
+    {
+        SceneManager.LoadScene("menu");
     }
 }

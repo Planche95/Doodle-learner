@@ -35,7 +35,5 @@ public class ButtonManager : MonoBehaviour
         GameData.BASE_SPRITE = "cat";
         SceneManager.LoadScene("main");
     }
-
-
 }
 
