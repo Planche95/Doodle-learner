@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoodleLearner", "DoodleLearner.csproj", "{0452A7CF-2CAA-46ED-1BB3-0DE759C2F0EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "doodlelearner", "doodlelearner.csproj", "{635745B7-24F3-0735-4A0E-C079DEA96C0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0452A7CF-2CAA-46ED-1BB3-0DE759C2F0EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0452A7CF-2CAA-46ED-1BB3-0DE759C2F0EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0452A7CF-2CAA-46ED-1BB3-0DE759C2F0EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0452A7CF-2CAA-46ED-1BB3-0DE759C2F0EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{635745B7-24F3-0735-4A0E-C079DEA96C0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{635745B7-24F3-0735-4A0E-C079DEA96C0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{635745B7-24F3-0735-4A0E-C079DEA96C0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{635745B7-24F3-0735-4A0E-C079DEA96C0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

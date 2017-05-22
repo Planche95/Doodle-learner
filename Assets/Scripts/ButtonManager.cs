@@ -62,6 +62,12 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("main");
     }
 
+    public void OnLearnBtn()
+    {
+        ShowMeAds ads = new ShowMeAds();
+        ads.ShowRewardedAd();
+    }
+
     public void ExitGameBtn()
     {
         Application.Quit();
