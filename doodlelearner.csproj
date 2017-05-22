@@ -81,6 +81,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ButtonLoader.cs" />
     <Compile Include="Assets\Scripts\BackgroudController.cs" />
     <Compile Include="Assets\Scripts\BoardCreator.cs" />
     <Compile Include="Assets\Scripts\ButtonManager.cs" />

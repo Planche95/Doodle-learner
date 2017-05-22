@@ -30,6 +30,9 @@ public abstract class GameType
 
         this.nrWords = nrWords;
         guessedCount = 0;
+
+        list = new List<string>();
+        spritesFromList = new List<Sprite>();
     }
 
     abstract public void checkInList(string name, Vector2 pos);
