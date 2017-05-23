@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>5.5.2f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -81,18 +83,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ButtonLoader.cs" />
-    <Compile Include="Assets\Scripts\BackgroudController.cs" />
-    <Compile Include="Assets\Scripts\BoardCreator.cs" />
-    <Compile Include="Assets\Scripts\ButtonManager.cs" />
     <Compile Include="Assets\Scripts\GameData.cs" />
-    <Compile Include="Assets\Scripts\GameType.cs" />
-    <Compile Include="Assets\Scripts\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\NormalGame.cs" />
-    <Compile Include="Assets\Scripts\PopupController.cs" />
-    <Compile Include="Assets\Scripts\TimeGame.cs" />
-    <Compile Include="Assets\Scripts\TimerController.cs" />
-    <Compile Include="Assets\Scripts\TouchController.cs" />
+    <Compile Include="Assets\Scripts\main\ListBackgroudController.cs" />
+    <Compile Include="Assets\Scripts\main\BoardCreator.cs" />
+    <Compile Include="Assets\Scripts\main\GameType.cs" />
+    <Compile Include="Assets\Scripts\main\NormalGame.cs" />
+    <Compile Include="Assets\Scripts\main\PopupController.cs" />
+    <Compile Include="Assets\Scripts\main\SummCanController.cs" />
+    <Compile Include="Assets\Scripts\main\TimeGame.cs" />
+    <Compile Include="Assets\Scripts\main\TimerController.cs" />
+    <Compile Include="Assets\Scripts\main\TouchController.cs" />
+    <Compile Include="Assets\Scripts\menu\ButtonManager.cs" />
+    <Compile Include="Assets\Scripts\menu\LanCanController.cs" />
+    <Compile Include="Assets\Scripts\menu\LanContentController.cs" />
+    <Compile Include="Assets\Scripts\menu\LanSettController.cs" />
+    <Compile Include="Assets\Scripts\menu\LanSettTextController.cs" />
+    <Compile Include="Assets\Scripts\menu\LearnController.cs" />
+    <Compile Include="Assets\Scripts\menu\MainCanController.cs" />
+    <Compile Include="Assets\Scripts\menu\RespCanvas.cs" />
+    <Compile Include="Assets\Scripts\menu\SwipeList.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

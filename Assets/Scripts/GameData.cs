@@ -15,6 +15,8 @@ public static class GameData{
 
     public static string BASE_SPRITE = "dog";
 
+    public static bool FROMGAME = false;
+
     public static readonly Dictionary<string, Dictionary<string, string[]>> words = new Dictionary<string, Dictionary<string, string[]>>()
     {
         { "Animals", new Dictionary<string, string[]>()
@@ -110,6 +112,11 @@ public static class GameData{
     public static string getWord(string eng)
     {
         return CURR_LAN.Equals(LANGUAGE.ENGLISH) ? eng : words[SET][eng][(int)CURR_LAN - 1];
+    }
+
+    public static string getWordFrom(string eng, string set)
+    {
+        return CURR_LAN.Equals(LANGUAGE.ENGLISH) ? eng : words[set][eng][(int)CURR_LAN - 1];
     }
 
     public static List<string> getListof(string set)
