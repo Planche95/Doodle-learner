@@ -18,16 +18,13 @@ public class ShowMeAds : MonoBehaviour
         switch (result)
         {
             case ShowResult.Finished:
-                Debug.Log("The ad was successfully shown.");
                 //
                 // Here - reward the gamer for watching ad. 
                 //
                 break;
             case ShowResult.Skipped:
-                Debug.Log("The ad was skipped before reaching the end.");
                 break;
             case ShowResult.Failed:
-                Debug.LogError("The ad failed to be shown.");
                 break;
         }
     }

@@ -22,18 +22,6 @@ public class BoardCreator: MonoBehaviour {
 
     void Start () {
 
-        //normal_game_music = GameObject.FindWithTag("NormalGameMusic").GetComponent<AudioSource>();
-        //normal_game_music.Play();
-        //Music for adequate game type
-        /*if (GameData.GAME_TYPE.GetType() == typeof(NormalGame))
-        {
-            normal_game_music = GameObject.FindWithTag("NormalGameMusic").GetComponent<AudioSource>();
-            normal_game_music.Play();
-        }else if(GameData.GAME_TYPE.GetType() == typeof(TimeGame)){
-            time_game_music = GameObject.FindWithTag("TimeGameMusic").GetComponent<AudioSource>();
-            time_game_music.Play();
-        }*/
-
         GameData.GAME_TYPE.loadCanvas();
         Sprite baseSprite = Resources.Load<Sprite>("Sprites/" + GameData.SET + "/" + GameData.BASE_SPRITE);
         GetComponent<SpriteRenderer>().sprite = baseSprite;
