@@ -10,6 +10,9 @@ public class BoardCreator: MonoBehaviour {
     public GameObject tempGameObject;
     public GameObject hintGO;
 
+    public AudioSource normal_game_music;
+    public AudioSource time_game_music;
+
     public List<GameObject> selectedDoodles;
 
     private const float DISTANCE = 0.5f;
@@ -18,6 +21,19 @@ public class BoardCreator: MonoBehaviour {
     private const float SIZE_RANGE = 0.05f;
 
     void Start () {
+
+        //normal_game_music = GameObject.FindWithTag("NormalGameMusic").GetComponent<AudioSource>();
+        //normal_game_music.Play();
+        //Music for adequate game type
+        /*if (GameData.GAME_TYPE.GetType() == typeof(NormalGame))
+        {
+            normal_game_music = GameObject.FindWithTag("NormalGameMusic").GetComponent<AudioSource>();
+            normal_game_music.Play();
+        }else if(GameData.GAME_TYPE.GetType() == typeof(TimeGame)){
+            time_game_music = GameObject.FindWithTag("TimeGameMusic").GetComponent<AudioSource>();
+            time_game_music.Play();
+        }*/
+
         GameData.GAME_TYPE.loadCanvas();
         Sprite baseSprite = Resources.Load<Sprite>("Sprites/" + GameData.SET + "/" + GameData.BASE_SPRITE);
         GetComponent<SpriteRenderer>().sprite = baseSprite;
@@ -33,7 +49,17 @@ public class BoardCreator: MonoBehaviour {
         transform.localScale = new Vector3(DISTANCE * DIVIDER, DISTANCE * DIVIDER);
 
         //Add doodles from list
-        replaceDoodles(createDoodles(setSprites, tex));     
+        replaceDoodles(createDoodles(setSprites, tex));
+
+        //Music for adequate game type
+        if (GameData.GAME_TYPE.GetType() == typeof(TimeGame))
+        {
+            time_game_music = GameObject.FindWithTag("TimeGameMusic").GetComponent<AudioSource>();
+            time_game_music.Play();
+        }else if(GameData.GAME_TYPE.GetType() == typeof(NormalGame)){
+            normal_game_music = GameObject.FindWithTag("NormalGameMusic").GetComponent<AudioSource>();
+            normal_game_music.Play();
+        }
     }
 
     private void replaceDoodles(List<GameObject> doodles)
@@ -117,12 +143,12 @@ public class BoardCreator: MonoBehaviour {
     }
 
     public void hint()
-    { 
+    {
+        ShowMeAds ads = new ShowMeAds();
+        ads.ShowRewardedAd();
         GameObject g = selectedDoodles.Where(x => x != null && x.GetComponent<SpriteRenderer>().sprite.name.Equals(GameData.GAME_TYPE.list[0]))
                                       .First<GameObject>();
         GameObject.Instantiate(hintGO, g.transform.position + new Vector3(Random.Range(-1.5f, 1.5f),Random.Range(-1.5f, 1.5f)), Quaternion.identity);
-
-
     }
 
     public void BackButton()
