@@ -132,11 +132,11 @@ public class BoardCreator: MonoBehaviour {
 
     public void hint()
     {
-        ShowMeAds ads = new ShowMeAds();
-        ads.ShowRewardedAd();
+
         GameObject g = selectedDoodles.Where(x => x != null && x.GetComponent<SpriteRenderer>().sprite.name.Equals(GameData.GAME_TYPE.list[0]))
                                       .First<GameObject>();
-        GameObject.Instantiate(hintGO, g.transform.position + new Vector3(Random.Range(-1.5f, 1.5f),Random.Range(-1.5f, 1.5f)), Quaternion.identity);
+        ShowMeAds ads = new ShowMeAds(g, hintGO);
+        ads.ShowRewardedAd();
     }
 
     public void BackButton()

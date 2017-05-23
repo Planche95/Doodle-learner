@@ -1,8 +1,17 @@
 ﻿using UnityEngine;
 using UnityEngine.Advertisements;
 
-public class ShowMeAds : MonoBehaviour
+public class ShowMeAds
 {
+    public int isFinished = 0;
+    private GameObject g;
+    private GameObject hintGO;
+
+    public ShowMeAds(GameObject g, GameObject hintGO)
+    {
+        this.g = g;
+        this.hintGO = hintGO;
+    }
 
     public void ShowRewardedAd()
     {
@@ -18,9 +27,7 @@ public class ShowMeAds : MonoBehaviour
         switch (result)
         {
             case ShowResult.Finished:
-                //
-                // Here - reward the gamer for watching ad. 
-                //
+                GameObject.Instantiate(hintGO, g.transform.position + new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f)), Quaternion.identity);
                 break;
             case ShowResult.Skipped:
                 break;
