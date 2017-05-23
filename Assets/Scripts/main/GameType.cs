@@ -65,6 +65,7 @@ public abstract class GameType
         GameObject.Destroy(canvas);
 
         summary.GetComponent<Canvas>().enabled = true;
+        summary.transform.GetChild(2).GetComponent<BoxCollider2D>().enabled = true;
         summary.transform.GetChild(4).GetComponent<Text>().text = wrondCount + "";
         summary.transform.GetChild(6).GetComponent<Text>().text = guessedCount + "";
 
