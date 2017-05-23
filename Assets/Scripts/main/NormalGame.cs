@@ -6,11 +6,12 @@ using UnityEngine.UI;
 
 public class NormalGame : GameType
 {
+
     public List<string> remaing = new List<string>();
 
     public NormalGame(int nrWords) : base(nrWords)
     {
-        
+
     }
 
     public override void checkInList(string name, Vector2 pos)

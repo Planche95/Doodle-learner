@@ -1,6 +1,7 @@
 5.5.2f1:2.8.2.0
 Android
 F:/unity/Editor/Data/Managed/UnityEngine.dll
+F:/unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll
 F:/unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
 F:/unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
 F:/unity/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll
