@@ -14,6 +14,7 @@ public class BoardCreator: MonoBehaviour {
     public AudioSource time_game_music;
 
     public List<GameObject> selectedDoodles;
+    public static List<GameObject> allDoodles;
 
     private const float DISTANCE = 0.5f;
     private const int DIVIDER = 10;
@@ -32,12 +33,12 @@ public class BoardCreator: MonoBehaviour {
 
         //Adjust Camera and base Sprite
         Vector3 middle = new Vector3(tex.width / (2 * DIVIDER) * DISTANCE - 3, tex.height / (2 * DIVIDER) * DISTANCE, -10);
-        Camera.main.transform.position = middle;
+        //Camera.main.transform.position = middle;
         transform.position = new Vector3(middle.x + 3, middle.y + 0.3f, 0);
         transform.localScale = new Vector3(DISTANCE * DIVIDER, DISTANCE * DIVIDER);
 
         //Add doodles from list
-        replaceDoodles(createDoodles(setSprites, tex));
+        allDoodles = replaceDoodles(createDoodles(setSprites, tex));
 
         //Music for adequate game type
         if (GameData.GAME_TYPE.GetType() == typeof(TimeGame))
@@ -50,7 +51,7 @@ public class BoardCreator: MonoBehaviour {
         }
     }
 
-    private void replaceDoodles(List<GameObject> doodles)
+    private List<GameObject> replaceDoodles(List<GameObject> doodles)
     {
         List<Sprite> copyList = new List<Sprite>(GameData.GAME_TYPE.spritesFromList);
         foreach (int rand in GameData.GAME_TYPE.getRandomRange(0, doodles.Count / 2 - 1, GameData.GAME_TYPE.nrWords))
@@ -68,6 +69,8 @@ public class BoardCreator: MonoBehaviour {
             copyList.RemoveAt(randNr * 2);
             copyList.RemoveAt(randNr * 2);
         }
+
+        return doodles;
     }
 
     private List<GameObject> createDoodles(List<Sprite> setSprites, Texture2D tex)
@@ -120,6 +123,8 @@ public class BoardCreator: MonoBehaviour {
                     borderDoodle.transform.localScale += new Vector3(offset, offset, 0);
 
                     doodle.AddComponent<PolygonCollider2D>();
+                    //doodle.GetComponent<SpriteRenderer>().enabled = false;
+                    //borderDoodle.GetComponent<SpriteRenderer>().enabled = false;
 
                     doodles.Add(doodle);
                     doodles.Add(borderDoodle);
@@ -128,6 +133,14 @@ public class BoardCreator: MonoBehaviour {
         }
 
         return doodles;
+    }
+
+    public static void turnOffSprites()
+    {
+        foreach(GameObject go in allDoodles)
+        {
+            go.GetComponent<SpriteRenderer>().enabled = false;
+        }
     }
 
     public void hint()
@@ -141,6 +154,7 @@ public class BoardCreator: MonoBehaviour {
 
     public void BackButton()
     {
-        SceneManager.LoadScene("menu");
+        LoadingScreenManager.LoadScene(0);
+        //SceneManager.LoadScene("menu");
     }
 }

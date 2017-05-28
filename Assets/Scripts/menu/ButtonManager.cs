@@ -77,7 +77,8 @@ public class ButtonManager : MonoBehaviour
                 GameData.GAME_TYPE = new TimeGame();
                 break;
         }
-        SceneManager.LoadScene("main");
+        LoadingScreenManager.LoadScene(1);
+        //SceneManager.LoadScene("main");
     }
 
     public void onLanSett()

@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class TouchController : MonoBehaviour
 {
+    public Camera backgroundCamera;
     private Vector3 prevPos;
 
     public float zoomSpeed = 0.1f;
@@ -44,7 +45,7 @@ public class TouchController : MonoBehaviour
         {
             swipe();
         }
-        else if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        else if (/*Input.GetMouseButtonDown(0))*/Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
             if ((Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position) - prevPos).magnitude < 0.1)
             {
@@ -74,6 +75,7 @@ public class TouchController : MonoBehaviour
 
         // ... change the orthographic size based on the change in distance between the touches.
         Camera.main.orthographicSize += deltaMagnitudeDiff * zoomSpeed;
+        backgroundCamera.orthographicSize += deltaMagnitudeDiff * zoomSpeed;
 
         Camera.main.orthographicSize = Camera.main.orthographicSize < sizeMin ? sizeMin : Camera.main.orthographicSize;
         Camera.main.orthographicSize = Camera.main.orthographicSize > sizeMax ? sizeMax : Camera.main.orthographicSize;
@@ -95,19 +97,20 @@ public class TouchController : MonoBehaviour
         Vector3 prevPos = transform.position;
 
         transform.Translate(-touchDeltaPosition.x * moveSpeed, -touchDeltaPosition.y * moveSpeed, 0);
+        backgroundCamera.transform.Translate(-touchDeltaPosition.x * moveSpeed, -touchDeltaPosition.y * moveSpeed, 0);
 
         Vector3 downLeft = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
         Vector3 upRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
 
-        transform.position = downLeft.x < downMax ? prevPos : transform.position;
-        transform.position = downLeft.y < leftMax ? prevPos : transform.position;
-        transform.position = upRight.x > upMax ? prevPos : transform.position;
-        transform.position = upRight.y > rightMax ? prevPos : transform.position;
+        Camera.main.transform.position = downLeft.x < downMax ? prevPos : transform.position;
+        Camera.main.transform.position = downLeft.y < leftMax ? prevPos : transform.position;
+        Camera.main.transform.position = upRight.x > upMax ? prevPos : transform.position;
+        Camera.main.transform.position = upRight.y > rightMax ? prevPos : transform.position;
     }
 
     public void click()
     {
-        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+        Vector3 pos = Camera.main.ScreenToWorldPoint(/*Input.mousePosition);*/Input.GetTouch(0).position);
 
         RaycastHit2D[] hits = Physics2D.RaycastAll(pos, Vector2.zero);
 
@@ -115,10 +118,10 @@ public class TouchController : MonoBehaviour
         {
             GameData.GAME_TYPE.checkInList(hits[0].collider.gameObject.transform.name, pos);
 
-            if (!GameData.GAME_TYPE.GetType().Name.Equals("TimeGame"))
+            /*if (!GameData.GAME_TYPE.GetType().Name.Equals("TimeGame"))
             {
                 Destroy(hits[0].collider.gameObject);
-            }
+            }*/
         }
     }
 }

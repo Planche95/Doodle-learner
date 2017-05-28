@@ -16,7 +16,7 @@ public class NormalGame : GameType
 
     public override void checkInList(string name, Vector2 pos)
     {
-        if (remaing.Contains(name))
+        if (list.Contains(name))
         {
             popup.GetComponent<SpriteRenderer>().sprite = correct;
 
