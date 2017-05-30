@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class TouchController : MonoBehaviour
 {
-    public Camera backgroundCamera;
+    //public Camera backgroundCamera;
     private Vector3 prevPos;
 
     public float zoomSpeed = 0.1f;
@@ -75,7 +75,7 @@ public class TouchController : MonoBehaviour
 
         // ... change the orthographic size based on the change in distance between the touches.
         Camera.main.orthographicSize += deltaMagnitudeDiff * zoomSpeed;
-        backgroundCamera.orthographicSize += deltaMagnitudeDiff * zoomSpeed;
+        //backgroundCamera.orthographicSize += deltaMagnitudeDiff * zoomSpeed;
 
         Camera.main.orthographicSize = Camera.main.orthographicSize < sizeMin ? sizeMin : Camera.main.orthographicSize;
         Camera.main.orthographicSize = Camera.main.orthographicSize > sizeMax ? sizeMax : Camera.main.orthographicSize;
@@ -97,7 +97,7 @@ public class TouchController : MonoBehaviour
         Vector3 prevPos = transform.position;
 
         transform.Translate(-touchDeltaPosition.x * moveSpeed, -touchDeltaPosition.y * moveSpeed, 0);
-        backgroundCamera.transform.Translate(-touchDeltaPosition.x * moveSpeed, -touchDeltaPosition.y * moveSpeed, 0);
+        //backgroundCamera.transform.Translate(-touchDeltaPosition.x * moveSpeed, -touchDeltaPosition.y * moveSpeed, 0);
 
         Vector3 downLeft = Camera.main.ScreenToWorldPoint(new Vector2(0, 0));
         Vector3 upRight = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
