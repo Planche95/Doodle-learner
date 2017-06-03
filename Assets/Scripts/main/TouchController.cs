@@ -6,7 +6,7 @@ public class TouchController : MonoBehaviour
     //public Camera backgroundCamera;
     private Vector3 prevPos;
 
-    public float zoomSpeed = 0.1f;
+    public float zoomSpeed = 0.001f;
     public float moveSpeed = 0.1f;
 
     private float upMax;
@@ -16,6 +16,8 @@ public class TouchController : MonoBehaviour
 
     private float sizeMin;
     private float sizeMax;
+
+    private float startTime;
 
     private void Start()
     {
@@ -40,6 +42,7 @@ public class TouchController : MonoBehaviour
         else if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             prevPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+            startTime = Time.time;
         }
         else if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
@@ -47,7 +50,8 @@ public class TouchController : MonoBehaviour
         }
         else if (/*Input.GetMouseButtonDown(0))*/Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
-            if ((Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position) - prevPos).magnitude < 0.1)
+
+            if ((Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position) - prevPos).magnitude < 0.1 && Time.time - startTime < 0.2f)
             {
                 click();
             }
@@ -88,7 +92,9 @@ public class TouchController : MonoBehaviour
         Camera.main.orthographicSize = upRight.x > upMax ? prevSize : Camera.main.orthographicSize;
         Camera.main.orthographicSize = upRight.y > rightMax ? prevSize : Camera.main.orthographicSize;
 
-        moveSpeed = Camera.main.orthographicSize <= 2 ? 0.05f : 0.1f;
+        zoomSpeed = Camera.main.orthographicSize <= 2 ? 0.05f : 0.1f;
+
+        moveSpeed = Camera.main.orthographicSize / 80;
     }
 
     public void swipe()
@@ -96,6 +102,7 @@ public class TouchController : MonoBehaviour
         Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
         Vector3 prevPos = transform.position;
 
+        //transform.Translate(Camera.main.ScreenToWorldPoint(touchDeltaPosition));
         transform.Translate(-touchDeltaPosition.x * moveSpeed, -touchDeltaPosition.y * moveSpeed, 0);
         //backgroundCamera.transform.Translate(-touchDeltaPosition.x * moveSpeed, -touchDeltaPosition.y * moveSpeed, 0);
 
